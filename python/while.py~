@@ -1,9 +1,0 @@
-x=raw_input()
-y=raw_input()
-while x+y>2:
-	if x>y:
-		print "x is gretaer than y"
-	elif x<y:
-		print "x is less than y"
-	else:
-		print "x is equal to y"

@@ -1,9 +1,0 @@
-print("Please input some keywords")
-x=raw_input()
-print("Please input some keywords again")
-y=raw_input()
-print(type(x))
-print(type(y))
-x1=int(x)
-y1=int(y)
-z=x1+y1
