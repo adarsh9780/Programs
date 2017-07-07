@@ -1,0 +1,6 @@
+x=10
+if x<12:
+	print "x is looser"
+else:
+	if x>30:
+		print "x is winner"

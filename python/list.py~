@@ -1,0 +1,3 @@
+lst = [1,2,3,'adarsh','maurya']
+for item in lst
+	print item

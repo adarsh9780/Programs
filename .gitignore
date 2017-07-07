@@ -1,0 +1,7 @@
+*.pyc
+python/*.pyc
+Kaggle/*.pyc
+ML/*.pyc
+c++/a.out
+c/a.out
+
