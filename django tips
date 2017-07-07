@@ -1,0 +1,28 @@
+Errors
+
+
+1 == THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE.
+
+    use "pip install [module] --no-cache-dir "
+    
+2 == virtualenv
+    
+    upgrade virtualenv using " sudo pip install --upgrade virtualenv"
+    
+3 == create virtualenv
+
+    use "virtualenv -p /usr/bin/python2.7 <name>" for python 2.7
+    
+    use "virtualenv -p /usr/bin/python3 <name>" for python 3
+    
+    use "virtualenv -p /usr/bin/python3.5 <name>" for python 3.5
+    
+    use "virtualenv -p python3 <name>" for python 3
+    
+    use "python3 -m venv <name>" for python 3
+
+Bext Mode to make virtual env:
+virtualenv -p $(which python3) <name of your project>
+    
+static files in django should always be named in small letters.
+

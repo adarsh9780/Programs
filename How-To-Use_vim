@@ -1,0 +1,62 @@
+Modes:
+1.) Insert Mode
+2.) Command Mode
+3.) Last-Line Mode
+
+and many more.
+
+The Basics of Moving in VIM:
+1.) h,j,k,l moves the cursor left, up, down, and right respectively.
+    You can use arrow keys in newer version to do the same.
+    Former works in COMMAND MODE only while latter can be used in both.
+
+2.) 0 moves cursor to the beginning of CURRENT line.
+3.) $ moves cursor to the end of CURRENT line.
+4.)(n)w moves cursor forward n word.
+5.) (n)b moves cursor backward n word.
+6.) G moves to the end of file.
+7.) gg moves to the beginning of file.
+8.) `. moves to the last edit.
+* --> (n) n is integer, for example 7w will move cursor 7 words forward.
+
+EDITING:
+d stands for deleting.
+dw will delete a word.
+d0 will delete to the end of line 
+and so on other commands will follow in conjugate with d command.
+
+u will undo.
+
+Search & Replace:
+In command mode type: / followed by the text & hit enter after it.
+If you want to find it again, hit n.
+?followed by the text & hit enter after it.
+If you hit n now, it will move backwards finding the word.
+Hitting N moves the cursor to the next instance from the last search.
+
+:%s/text/replacement text/g search and replace every instance of text with
+	replacement text.
+
+:%s/text/replacement text/gc search and replace every instance of text with
+replacement text, but will ask for confirmation for doing that.
+
+Copying & Pasting:
+Deleted text is already placed in buffer.
+Use p or P to paste.
+This goes for single line, Multiple line and even for entire documents.
+
+Select text:
+In command mode, hit V to select rows using cursor.
+CTRL-V is used to select columns.
+
+After selecting hit y to yank, which basically moves to push in the stack.
+
+Saving and Quitting:
+:w will save the changes.
+:w filename will change the filename
+
+q will quit vim, if you have saved your changes, else will nag to save it before quitting.
+
+#include"some random text
+some random text some random text
+
