@@ -20,6 +20,8 @@ public:
 	//contructors are called automatically as soon as object is cretated
 	struct Node* Insert(struct Node *root, int data);
 	struct Node* Return_Root_Node();
+	struct Node* delete_node(struct Node*, int);
+	struct Node* find_min(struct Node*);
 	void Preorder(struct Node* root);
 	void Stack_Preorder(struct Node* root);
 	void Stack_Inorder(struct Node* root);
@@ -142,6 +144,74 @@ void Trees :: Stack_Inorder(struct Node* root)
 	}
 }
 
+// struct Node* Trees :: find_min(struct Node* root)
+// {
+// 	int min = root->data;
+// 	if(root == NULL) return root;
+// 	else
+// 	{
+// 		while(root)
+// 		{
+// 			if(root->data < min) min = root->data;
+// 			root = root->left;
+// 		}
+// 	}
+// 	return root;
+// }
+
+struct Node* Trees :: find_min(struct Node *temp)
+{
+	if(temp == NULL)
+	{
+		return temp;
+	}
+	else
+	{
+		while(temp->left != NULL)
+		{
+			temp = temp->left;
+		}
+		return temp;
+	}
+}
+
+//delete node
+struct Node* Trees :: delete_node(struct Node* root, int data)
+{
+	if(root == NULL) return root;
+	else if(root->data > data) root->right = delete_node(root->right, data);
+	else if(root->data < data) root->left = delete_node(root->left, data);
+	else
+	{
+		//no child case
+		if(root->left==NULL && root->right==NULL)
+		{
+			delete root;
+			//root is deleted but still it is present in memory
+			root = NULL;
+		}
+		// one child
+		else if(root->left == NULL)
+		{
+			//store the address of current Node
+			struct Node* temp = root;
+			root = root->right;
+			delete temp;
+		}
+		else if(root->right == NULL)
+		{
+			//store the address of current Node
+			struct Node* temp = root;
+			root = root->left;
+			delete temp;
+		}
+		struct Node* temp = find_min(root->right);
+		root->data = temp->data;
+		root->right = delete_node(root->right, temp->data);
+		return root;
+	}
+}
+
 //driving function
 int main()
 {
@@ -158,20 +228,24 @@ int main()
 		root = obj.Insert(root, data);
 		num--;
 	}
-	// cout << "Preorder" << endl;
-	// obj.Preorder(root);
+	cout << "Before" << endl;
+	obj.Preorder(root);
 	
 	// cout << "Stack_Preorder" << endl;
 	// obj.Stack_Preorder(root);
 	
-	cout << "Inorder" << endl;
-	obj.Inorder(root);
+	// cout << "Inorder" << endl;
+	// obj.Inorder(root);
 
-	cout << "Stack_Inorder\n";
-	obj.Stack_Inorder(root);
+	// cout << "Stack_Inorder\n";
+	// obj.Stack_Inorder(root);
 	
 	// cout << "Postorder" << endl;
 	// obj.Postorder(root);
-	
+
+	root = obj.delete_node(root, 85);
+	cout << "After" << endl;
+	obj.Preorder(root);
+
 	return 0;
 }
