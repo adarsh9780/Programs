@@ -26,3 +26,9 @@ virtualenv -p $(which python3) <name of your project>
     
 static files in django should always be named in small letters.
 
+
+pyvenv-3.4 --without-pip venvdir
+source venvdir/bin/activate
+curl https://bootstrap.pypa.io/get-pip.py | python
+deactivate
+source venvdir/bin/activate
