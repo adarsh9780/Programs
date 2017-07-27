@@ -6,3 +6,6 @@ c++/a.out
 c/a.out
 __pycache__
 .fuse*
+Kaggle/.ipynb*
+Kaggle/titanic/*.csv
+
